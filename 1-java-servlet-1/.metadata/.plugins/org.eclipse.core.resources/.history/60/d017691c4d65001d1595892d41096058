@@ -1,0 +1,33 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ page import="java.util.*, br.com.alura.gerenciador.servlet.*" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Java Standard Taglib</title>
+</head>
+<body>
+    Lista de empresas: <br />
+    <% 
+    Empresa e = new Empresa();
+    e.setNome("murilo");
+    String murilo = "murilo";
+    Banco bc = new Banco();
+    List<Empresa> lista = bc.getEmpresas();
+    lista.add(e);
+    %>
+
+    <ul>
+        <c:forEach var="empresa" items="${lista }" >
+            <li><c:out value = "${empresa.nome}"/></li>
+        </c:forEach>
+        <li>${murilo }</li>
+    </ul>
+    ${murilo }
+
+</body>
+</html>
